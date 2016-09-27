@@ -1,4 +1,7 @@
 <?php
+$this->registerJsFile('/ckeditor/plugins/config.js',  ['position' => '\yii\web\View::POS_END']);
+//$this->registerJsFile('/ckeditor/plugins/include/spoiler.js',  ['position' => '\yii\web\View::POS_END']);
+$this->registerCssFile('/ckeditor/plugins/include/spoiler.css');
 
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -9,34 +12,6 @@ use yii\widgets\Pjax;
 use execut\widget\TreeView;
 use app\models\Tree;
 
-$items = [
-    [
-        'text' => 'Parent 1',
-        'nodes' => [
-            [
-                'text' => 'Child 1',
-                'nodes' => [
-                    [
-                        'text' => 'Grandchild 1',
-                        'href' => 'google'
-                    ],
-                    [
-                        'text' => 'Grandchild 2'
-                    ]
-                ]
-            ],
-            [
-                'text' => 'Child 2',
-            ]
-        ],
-    ],
-    [
-        'text' => 'Parent 2',
-    ]
-];
-//echo '<pre>';
-//var_dump($items);
-//echo '=================================';
                 function Recurs(&$rs, $parent)
                 {
                     $out = array();
@@ -108,6 +83,8 @@ $this->title = 'Trees';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div id="pjax-container"></div>
+
+<?php /*
 <div class="tree-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

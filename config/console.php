@@ -25,6 +25,12 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
+    'controllerMap' => [
+        'migration' => [
+            'class' => 'tmukherjee13\migration\console\controllers\MigrationController',
+            'templateFile' => '@tmukherjee13/migration/views/template.php',
+        ],
+    ],
     /*
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.

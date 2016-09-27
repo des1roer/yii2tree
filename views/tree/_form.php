@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
@@ -10,19 +9,14 @@ use dosamigos\ckeditor\CKEditor;
 ?>
 
 <div class="tree-form">
-
     <?php $form = ActiveForm::begin(); ?>
-
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-
-    <?=
-    $form->field($model, 'txt')->widget(CKEditor::className(), [
-        'options' => ['rows' => 6],
-        'preset' => 'basic'
-    ])
+    <?= $form->field($model, 'txt')->widget(CKEditor::className(), ['preset' => 'standart',
+        'clientOptions' => [
+            'customConfig' => '/ckeditor/config.js',
+        ]])
     ?>
 
     <div class="form-group">
@@ -30,5 +24,4 @@ use dosamigos\ckeditor\CKEditor;
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>
